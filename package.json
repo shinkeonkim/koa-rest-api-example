@@ -1,0 +1,17 @@
+{
+  "name": "koa-rest-api-example",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/shinkeonkim/koa-rest-api-example",
+  "author": "shinkeonkim",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.ts"
+  },
+  "dependencies": {
+    "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31"
+  }
+}
