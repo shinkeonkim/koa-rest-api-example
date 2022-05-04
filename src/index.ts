@@ -17,4 +17,9 @@ app.use(ctx => {
   ctx.body = 'Hello Koa';
 });
 
+// Error Handler
+app.on('error', (err: Error) => {
+  console.error('[Server Error]', err);
+});
+
 app.listen(PORT);
