@@ -1,18 +1,13 @@
 import Koa from 'koa';
+import KoaLogger from 'koa-logger';
+
 import router from './routes';
 
 const app = new Koa();
 
 const PORT = process.env.PORT;
 
-// logger
-app.use(async (ctx, next) => {
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+app.use(KoaLogger());
 
 app.use(router.routes());
 
