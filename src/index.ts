@@ -1,4 +1,6 @@
 import Koa from 'koa';
+import router from './routes';
+
 const app = new Koa();
 
 const PORT = process.env.PORT;
@@ -12,10 +14,7 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-// response
-app.use(ctx => {
-  ctx.body = 'Hello Koa';
-});
+app.use(router.routes());
 
 // Error Handler
 app.on('error', (err: Error) => {
