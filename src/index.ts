@@ -16,4 +16,6 @@ app.on('error', (err: Error) => {
   console.error('[Server Error]', err);
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server is litening at http://localhost:${PORT}`);
+});
