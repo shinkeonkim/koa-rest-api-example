@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 module.exports = {
   apps: [
     {
@@ -5,22 +9,30 @@ module.exports = {
       script: './src/index.ts',
       instances: 1,
       autorestart: true,
-      watch: true,
+      watch: [
+        "src",
+        ".env",
+        "tsconfig.json"
+      ],
       env: {
-        PORT: 3333,
+        PORT: process.env.PORT,
         NODE_ENV: 'development',
-      }
+      },
     },
     {
       name: 'production',
       script: './src/index.ts',
       instances: -1,
-      autorestart: true,
+      autorestart: false,
       watch: false,
       env: {
-        PORT: 3333,
-        NODE_ENV: 'development',
-      }
+        PORT: process.env.PORT,
+        NODE_ENV: 'production',
+      },
     },
-  ]
+  ],
+  deploy: {
+    production: {
+    }
+  }
 }
